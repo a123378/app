@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Tile Background Gradient -->
+    <linearGradient id="tileGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Glowing Red Gradient for "中" -->
+    <linearGradient id="neonRedGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff4b5c" />
+      <stop offset="100%" stop-color="#f43f5e" />
+    </linearGradient>
+
+    <!-- Gold Accent Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+
+    <!-- Glass Reflection Highlight -->
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15" />
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.02" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Inner Shadow Glow -->
+    <radialGradient id="innerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="70%" stop-color="#10b981" stop-opacity="0" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.25" />
+    </radialGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Neon Glow Filter for text/paths -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer background circle to ensure nice rounded mask -->
+  <rect width="512" height="512" rx="112" fill="#0b0f19" />
+
+  <!-- The Mahjong Tile base -->
+  <rect x="56" y="56" width="400" height="400" rx="64" fill="url(#tileGrad)" stroke="url(#goldGrad)" stroke-width="6" filter="url(#shadow)" />
+  
+  <!-- Inner Glow Area -->
+  <rect x="62" y="62" width="388" height="388" rx="58" fill="url(#innerGlow)" pointer-events="none" />
+
+  <!-- Decorative Corner Highlights -->
+  <rect x="76" y="76" width="360" height="360" rx="46" fill="none" stroke="#334155" stroke-width="2" stroke-dasharray="16 12" />
+
+  <!-- Styled Mahjong '中' Character -->
+  <g filter="url(#glow)">
+    <!-- Vertical stroke -->
+    <path d="M 236 120 L 276 120 L 276 392 L 236 392 Z" fill="url(#neonRedGrad)" rx="6" />
+    
+    <!-- Outer rectangular loop -->
+    <path d="M 152 170 C 152 160 160 152 170 152 L 342 152 C 352 152 360 160 360 170 L 360 300 C 360 310 352 318 342 318 L 170 318 C 160 318 152 310 152 300 Z M 196 196 L 196 274 L 316 274 L 316 196 Z" fill="url(#neonRedGrad)" fill-rule="evenodd" />
+  </g>
+
+  <!-- Gold accents around Center '中' -->
+  <circle cx="106" cy="106" r="8" fill="url(#goldGrad)" />
+  <circle cx="406" cy="106" r="8" fill="url(#goldGrad)" />
+  <circle cx="106" cy="406" r="8" fill="url(#goldGrad)" />
+  <circle cx="406" cy="406" r="8" fill="url(#goldGrad)" />
+
+  <!-- Diagonal Glass Overlay Reflection -->
+  <path d="M 58 58 L 454 58 C 454 58 350 250 58 370 Z" fill="url(#glassGrad)" pointer-events="none" />
+</svg>
